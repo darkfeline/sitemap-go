@@ -35,7 +35,7 @@ func ExampleWritePretty() {
 	}
 	// Output:
 	// <?xml version="1.0" encoding="UTF-8"?>
-	// <urlset Namespace="http://www.sitemaps.org/schemas/sitemap/0.9">
+	// <urlset namespace="http://www.sitemaps.org/schemas/sitemap/0.9">
 	//   <url>
 	//     <loc>http://www.example.com/foo</loc>
 	//     <lastmod>2001-02-03</lastmod>

@@ -29,7 +29,7 @@ const XMLNamespace = "http://www.sitemaps.org/schemas/sitemap/0.9"
 // URLSet is the Go representation of a urlset element.
 type URLSet struct {
 	XMLName   xml.Name `xml:"urlset"`
-	Namespace string   `xml:",attr"`
+	Namespace string   `xml:"namespace,attr"`
 	URLs      []URL
 }
 
