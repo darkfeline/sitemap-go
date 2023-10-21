@@ -18,9 +18,8 @@ package sitemap
 
 import (
 	"encoding/xml"
+	"fmt"
 	"io"
-
-	"golang.org/x/xerrors"
 )
 
 // XMLNamespace is the XML namespace for sitemap elements.
@@ -59,11 +58,11 @@ const (
 func Write(w io.Writer, u *URLSet) error {
 	setDefaultNamespace(u)
 	if _, err := io.WriteString(w, xml.Header); err != nil {
-		return xerrors.Errorf("write sitemap: %w", err)
+		return fmt.Errorf("write sitemap: %w", err)
 	}
 	e := xml.NewEncoder(w)
 	if err := e.Encode(u); err != nil {
-		return xerrors.Errorf("write sitemap: %w", err)
+		return fmt.Errorf("write sitemap: %w", err)
 	}
 	return nil
 }
@@ -72,12 +71,12 @@ func Write(w io.Writer, u *URLSet) error {
 func WritePretty(w io.Writer, u *URLSet) error {
 	setDefaultNamespace(u)
 	if _, err := io.WriteString(w, xml.Header); err != nil {
-		return xerrors.Errorf("write sitemap: %w", err)
+		return fmt.Errorf("write sitemap: %w", err)
 	}
 	e := xml.NewEncoder(w)
 	e.Indent("", "  ")
 	if err := e.Encode(u); err != nil {
-		return xerrors.Errorf("write sitemap: %w", err)
+		return fmt.Errorf("write sitemap: %w", err)
 	}
 	return nil
 }
